@@ -10,12 +10,12 @@ namespace DotLiquid.Tags
 		private static readonly Regex Syntax = new Regex(string.Format(@"({0})", Liquid.QuotedFragment));
 		private static readonly Regex WhenSyntax = new Regex(string.Format(@"({0})(?:(?:\s+or\s+|\s*\,\s*)({0}.*))?", Liquid.QuotedFragment));
 
-		private List<Condition> _blocks;
+		public List<Condition> Blocks;
 		private string _left;
 
 		public override void Initialize(string tagName, string markup, List<string> tokens)
 		{
-			_blocks = new List<Condition>();
+			Blocks = new List<Condition>();
 
 			Match syntaxMatch = Syntax.Match(markup);
 			if (syntaxMatch.Success)
@@ -48,7 +48,7 @@ namespace DotLiquid.Tags
 			context.Stack(() =>
 			{
 				bool executeElseBlock = true;
-				_blocks.ForEach(block =>
+				Blocks.ForEach(block =>
 				{
 					if (block.IsElse)
 					{
@@ -82,7 +82,7 @@ namespace DotLiquid.Tags
 
 				Condition block = new Condition(_left, "==", whenSyntaxMatch.Groups[1].Value);
 				block.Attach(NodeList);
-				_blocks.Add(block);
+				Blocks.Add(block);
 			}
 		}
 
@@ -93,7 +93,7 @@ namespace DotLiquid.Tags
 
 			ElseCondition block = new ElseCondition();
 			block.Attach(NodeList);
-			_blocks.Add(block);
+			Blocks.Add(block);
 		}
 	}
 }

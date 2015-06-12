@@ -42,7 +42,7 @@ namespace DotLiquid
 		public string Right { get; set; }
 
 		private string _childRelation;
-		private Condition _childCondition;
+		public Condition ChildCondition;
 
 		public List<object> Attachment { get; private set; }
 
@@ -70,9 +70,9 @@ namespace DotLiquid
 			switch (_childRelation)
 			{
 				case "or":
-					return result || _childCondition.Evaluate(context);
+					return result || ChildCondition.Evaluate(context);
 				case "and":
-					return result && _childCondition.Evaluate(context);
+					return result && ChildCondition.Evaluate(context);
 				default:
 					return result;
 			}
@@ -81,13 +81,13 @@ namespace DotLiquid
 		public void Or(Condition condition)
 		{
 			_childRelation = "or";
-			_childCondition = condition;
+			ChildCondition = condition;
 		}
 
 		public void And(Condition condition)
 		{
 			_childRelation = "and";
-			_childCondition = condition;
+			ChildCondition = condition;
 		}
 
 		public List<object> Attach(List<object> attachment)

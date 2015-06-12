@@ -24,7 +24,7 @@ namespace DotLiquid.Tags
 		private static readonly Regex Syntax = R.B(R.Q(@"({0})\s*([=!<>a-z_]+)?\s*({0})?"), Liquid.QuotedFragment);
 		private static readonly string ExpressionsAndOperators = string.Format(R.Q(@"(?:\b(?:\s?and\s?|\s?or\s?)\b|(?:\s*(?!\b(?:\s?and\s?|\s?or\s?)\b)(?:{0}|\S+)\s*)+)"), Liquid.QuotedFragment);
 
-		protected List<Condition> Blocks { get; private set; }
+		public List<Condition> Blocks { get; private set; }
 
 		public override void Initialize(string tagName, string markup, List<string> tokens)
 		{

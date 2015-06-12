@@ -5,9 +5,9 @@ namespace DotLiquid
 {
 	public class Tag : IRenderable
 	{
-		public List<object> NodeList { get; protected set; }
+		public List<object> NodeList { get; set; }
 		protected string TagName { get; private set; }
-		protected string Markup { get; private set; }
+		public string Markup { get; private set; }
 
 		/// <summary>
 		/// Only want to allow Tags to be created in inherited classes or tests.

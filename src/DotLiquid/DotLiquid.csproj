@@ -48,12 +48,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Exceptions\InterruptException.cs" />
+    <Compile Include="Extensions\ConditionExtensions.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="Extensions\Symbol.cs" />
+    <Compile Include="Extensions\NodeListExtensions.cs" />
+    <Compile Include="Extensions\SymbolType.cs" />
+    <Compile Include="Extensions\TemplateExtensions.cs" />
     <Compile Include="FileSystems\EmbeddedFileSystem.cs" />
     <Compile Include="IValueTypeConvertible.cs" />
     <Compile Include="LiquidTypeAttribute.cs" />
     <Compile Include="RenderParameters.cs" />
     <Compile Include="Tags\Break.cs" />
     <Compile Include="Tags\Continue.cs" />
+    <Compile Include="Extensions\CaseExtensions.cs" />
+    <Compile Include="Extensions\IfExtensions.cs" />
     <Compile Include="Tags\Raw.cs" />
     <Compile Include="Util\StrFTime.cs" />
     <Compile Include="Exceptions\ArgumentException.cs" />
